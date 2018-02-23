@@ -1,0 +1,24 @@
+{
+  "name": "weekend-challenge-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samstanding/weekend-challenge-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samstanding/weekend-challenge-4/issues"
+  },
+  "homepage": "https://github.com/samstanding/weekend-challenge-4#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
