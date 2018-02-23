@@ -8,13 +8,57 @@
     <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="vendors/bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="vendors/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/main.css">
     <title>Life Gallery</title>
 </head>
 <body>
     <main ng-controller="AppController as vm">
-    <h2>Hey Friend</h2>
-    <h4>Sit Down and Stay for a While<br>I'm going to tell you about my life</h4>
-    
+    <div class="container">
+        <div class="col-md-12" align="center">
+            <h2>Hey Friend</h2>
+            <h4>Sit Down and Stay for a While<br>I'm going to tell you about my life</h4>
+        </div>
+    <div class="row">
+        <div class="col-md-4" align="center" ng-hide="description">
+            <img ng-click="" src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p>
+        </div>
+        <div class="col-md-4" align="center">
+            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p>
+        </div>
+        <div class="col-md-4" align="center">
+            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" align="center">
+            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p> 
+        </div>
+        <div class="col-md-4" align="center">
+            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+             <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p> 
+        </div>
+        <div class="col-md-4" align="center">
+            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <p>My First Car </p>
+            <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
+            <p>People like this! :)</p> 
+        </div>
+    </div>
+    </div>
 </main>
 </body>
 </html>
