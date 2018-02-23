@@ -19,14 +19,16 @@
             <h4>Sit Down and Stay for a While<br>I'm going to tell you about my life</h4>
         </div>
     <div class="row">
-        <div class="col-md-4" align="center" ng-hide="description">
-            <img ng-click="" src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+        <div class="col-md-4" align="center">
+            <img ng-hide="description" ng-click="description=true" src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <textarea rows="12" cols="34" ng-show="description" ng-click="description=false" >This is a special memory.</textarea>
             <p>My First Car </p>
             <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
             <p>People like this! :)</p>
         </div>
         <div class="col-md-4" align="center">
-            <img src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <img ng-hide="description1" ng-click="description1=true" src="https://f4.bcbits.com/img/a2020752183_16.jpg" height="250" width="250">
+            <text-box ng-show="description1" ng-click="description1=false">This is a special memory.</text-box>
             <p>My First Car </p>
             <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
             <p>People like this! :)</p>
