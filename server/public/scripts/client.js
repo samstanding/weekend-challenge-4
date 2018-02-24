@@ -22,6 +22,16 @@ self.getPhotos = function () {
 
 self.getPhotos();
 
+self.addLike = function (id) {
+    $http ({
+        method:'PUT',
+        url: `/gallery/${id}`
+    }).then(function (response) {
+        self.getPhotos();
+    }).catch(function (error) {
+        console.log('error on put: ', error );        
+    })
+}
 
 
 

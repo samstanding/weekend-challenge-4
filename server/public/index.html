@@ -23,8 +23,8 @@
                 <img ng-hide="description" ng-click="description=true" ng-src="{{photo.img}}" height="250" width="250">
                 <textarea rows="12" cols="34" ng-show="description" ng-click="description=false" >{{photo.description}}</textarea>
                 <p>{{photo.title}} </p>
-                <button class="btn-success" value="1" ng-click="vm.addVote(photo)">I like this!</button>
-                <p>People like this! :)</p>
+                <button class="btn-success" value="1" ng-click="vm.addLike(photo.id)">I like this!</button>
+                <p> {{photo.like_count}} People like this! :)</p>
             </div>
         </div>
     </div>
