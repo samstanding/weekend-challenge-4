@@ -14,9 +14,17 @@
 <body>
     <main ng-controller="AppController as vm">
     <div class="container">
-        <div class="col-md-12" align="center">
+        <div class="col-md-9" align="center">
             <h2>Hello Friend</h2>
             <h4>Sit Down and Stay for a While. I'm going to tell you about my life</h4>
+        </div>
+        <div class = "col-md-3" align="left">
+            <form>
+                <input type="text" ng-model="vm.newPhoto.img" placeholder="img url">
+                <input type="text" ng-model="vm.newPhoto.description" placeholder="description">
+                <input type="text" ng-model="vm.newPhoto.title" placeholder="title">
+                <button ng-click= "vm.addPhoto(vm.newPhoto)">Add Photo</button>
+            </form>
         </div>
         <div ng-repeat="photo in vm.photoArray">
             <div class="col-md-4" align="center">

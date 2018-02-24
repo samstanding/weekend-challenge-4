@@ -59,4 +59,16 @@ router.get('/:id', function (req, res) {
     })
 })
 
+router.post('/', function (req, res) {
+    console.log(req.body);
+    const photo = req.body;
+    const sqlText = `INSERT INTO photos (img, description, title) VALUES ($1, $2, $3);`;
+    pool.query(sqlText, [photo.img, photo.description, photo.title])
+    .then(function (result) {
+        res.sendStatus(200);
+    }).catch(function (error) {
+        console.log('error on post: ', error);
+    })
+})
+
 module.exports = router;

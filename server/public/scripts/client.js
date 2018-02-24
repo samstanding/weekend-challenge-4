@@ -8,6 +8,7 @@ console.log('what up!');
 self.photoArray = [];
 self.newComment = {};
 self.commentArray = [];
+self.newPhoto={};
 
 
 self.getPhotos = function () {
@@ -72,6 +73,21 @@ self.getComments = function (id) {
     })
 }
 
+self.addPhoto = function (photo) {
+    console.log(photo);
+    
+    $http({
+        method:'POST',
+        url: '/gallery',
+        data: photo
+    }).then(function (response) {
+        self.newPhoto = {};
+        self.getPhotos();
+    }).catch(function(error) {
+        console.log('post error: ',error);
+        
+    })
+}
 
 
 
