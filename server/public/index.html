@@ -32,11 +32,11 @@
                     <textarea ng-model="vm.newComment.commentContent" placeholder="leave your comment"></textarea>
                     <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment, photo.id)">Submit Comment</button>
                 </form>
-                <button class="btn-success" ng-hide="comments" ng-click="comments=true; vm.getComments(photo.id)">Show Comments</button>
+                <button class="btn-success" ng-hide="comments; commentBtn" ng-click="comments=true; commentBtn=true; vm.getComments(photo.id)">Show Comments</button>
                 <ul ng-show="comments" ng-repeat="comment in vm.commentArray">
                     <li> <strong>{{comment.author}} </strong>  says: {{comment.comments}} </li>
                 </ul>
-                <button class="btn-success" ng-click="comments=false">Hide Comments</button>
+                <button ng-show="commentBtn" class="btn-success" ng-click="comments=false; commentBtn=false">Hide Comments</button>
             </div>
         </div>
     </div>
