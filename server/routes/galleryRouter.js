@@ -36,4 +36,27 @@ router.put('/count/:id', function (req, res) {
     })
 })
 
+router.post('/:id', function (req, res) {
+    const id = req.params.id;
+    let comment = req.body;
+    const sqlText = `INSERT INTO comments (comments, photo_id, author) VALUES ($1, $2, $3);`;
+    pool.query(sqlText, [comment.commentContent, id, comment.commentName])
+    .then(function (result) {
+        res.sendStatus(200);
+    }).catch(function (error) {
+        console.log('on comment post', error);
+    })
+})
+
+router.get('/:id', function (req, res) {
+    const id = req.params.id;
+    const sqlText = `SELECT * FROM comments WHERE photo_id=$1;`;
+    pool.query(sqlText, [id])
+    .then(function (result) {
+        res.send(result);
+    }).catch(function (error) {
+        console.log(`error on comment get: ${error}`);
+    })
+})
+
 module.exports = router;

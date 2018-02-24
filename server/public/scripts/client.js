@@ -4,8 +4,10 @@ const appController = app.controller('AppController', ['$http', function ($http)
 let self = this;
 console.log('what up!');
 
-self.photoArray = [];
 
+self.photoArray = [];
+self.newComment = {};
+self.commentArray = [];
 
 
 self.getPhotos = function () {
@@ -39,12 +41,36 @@ self.addCount = function (id) {
         url: `/gallery/count/${id}`
     }).then(function (response) {
         console.log('adding clicks');
-        
     }).catch(function (error) {
         console.log('error on put: ', error );        
     })
 }
 
+self.addComment = function (newComment, id) {
+    $http({
+        method:'POST',
+        url: `/gallery/${id}`,
+        data: newComment
+    }).then(function (response) {
+        self.getPhotos();
+        self.newComment = {};
+    }).catch(function (error) {
+        console.log(`error on post comment: ${error}`);
+    })    
+}
+
+self.getComments = function (id) {
+    $http({
+        method: 'GET',
+        url:`/gallery/${id}`
+    }).then(function (response) {
+        self.commentArray = response.data.rows;
+        console.log(response.data.rows);
+        
+    }).catch(function (error) {
+        console.log(`error on comment get: ${error}`);
+    })
+}
 
 
 

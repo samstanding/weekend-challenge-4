@@ -15,18 +15,28 @@
     <main ng-controller="AppController as vm">
     <div class="container">
         <div class="col-md-12" align="center">
-            <h2>Hey Friend</h2>
-            <h4>Sit Down and Stay for a While<br>I'm going to tell you about my life</h4>
+            <h2>Hello Friend</h2>
+            <h4>Sit Down and Stay for a While. I'm going to tell you about my life</h4>
         </div>
         <div ng-repeat="photo in vm.photoArray">
             <div class="col-md-4" align="center">
                 <img ng-hide="description" ng-click="description=true; vm.addCount(photo.id)" ng-src="{{photo.img}}" height="250" width="250">
                 <textarea rows="12" cols="34" ng-show="description" ng-click="description=false; vm.getPhotos()" >{{photo.description}}</textarea>
                 <p>{{photo.title}} </p>
-                <button class="btn-success" value="1" ng-click="vm.addLike(photo.id)">I like this!</button>
+                <button ng-click="vm.addLike(photo.id)">I like this!</button>
                 <p> {{photo.like_count}} People like this! :)</p>
-                <button ng-hide="imageView" ng-click="imageView=true">Show image clicks</button>
-                <p ng-show ="imageView" ng-click="imageView=false">This image was viewed {{photo.view_count}} times! </p>
+                <p >This image was viewed {{photo.view_count}} times! </p>
+                <button class="btn-success" ng-hide="leaveComment" ng-click="leaveComment=true">Leave A Comment</button>
+                <form ng-show="leaveComment">
+                    <input type="text" ng-model="vm.newComment.commentName" placeholder="your name">
+                    <textarea ng-model="vm.newComment.commentContent" placeholder="leave your comment"></textarea>
+                    <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment, photo.id)">Submit Comment</button>
+                </form>
+                <button class="btn-success" ng-hide="comments" ng-click="comments=true; vm.getComments(photo.id)">Show Comments</button>
+                <ul ng-show="comments" ng-repeat="comment in vm.commentArray">
+                    <li> <strong>{{comment.author}} </strong>  says: {{comment.comments}} </li>
+                </ul>
+                <button class="btn-success" ng-click="comments=false">Hide Comments</button>
             </div>
         </div>
     </div>
