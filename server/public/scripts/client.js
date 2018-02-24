@@ -33,6 +33,18 @@ self.addLike = function (id) {
     })
 }
 
+self.addCount = function (id) {
+    $http ({
+        method:'PUT',
+        url: `/gallery/count/${id}`
+    }).then(function (response) {
+        console.log('adding clicks');
+        
+    }).catch(function (error) {
+        console.log('error on put: ', error );        
+    })
+}
+
 
 
 

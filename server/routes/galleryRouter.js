@@ -25,4 +25,15 @@ router.put('/:id', function (req, res) {
     })
 })
 
+router.put('/count/:id', function (req, res) {
+    const id = req.params.id;
+    const sqlText = `UPDATE photos SET view_count = view_count + 1 WHERE id =$1;`;
+    pool.query(sqlText, [id])
+    .then(function (result) {
+        res.sendStatus(200);
+    }).catch(function (error) {
+        console.log('on put: ', error);
+    })
+})
+
 module.exports = router;
