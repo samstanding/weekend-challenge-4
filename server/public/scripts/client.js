@@ -2,11 +2,9 @@ const app = angular.module('myApp', []);
 
 const appController = app.controller('AppController', ['$http', function ($http) {
 let self = this;
-console.log('what up!');
-
 
 self.photoArray = [];
-self.newComment = {};
+self.newComment = {commentName: '', commentContent: ''};
 self.commentArray = [];
 self.newPhoto={};
 
@@ -66,8 +64,6 @@ self.getComments = function (id) {
         url:`/gallery/${id}`
     }).then(function (response) {
         self.commentArray = response.data.rows;
-        console.log(response.data.rows);
-        
     }).catch(function (error) {
         console.log(`error on comment get: ${error}`);
     })

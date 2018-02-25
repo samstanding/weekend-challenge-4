@@ -26,7 +26,7 @@
                 <button ng-click= "vm.addPhoto(vm.newPhoto)">Add Photo</button>
             </form>
         </div>
-        <div ng-repeat="photo in vm.photoArray">
+        <div ng-repeat="(i, photo) in vm.photoArray track by $index">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
             <div class="col-md-4" align="center">
                 <img ng-hide="description" ng-click="description=true; vm.addCount(photo.id)" ng-src="{{photo.img}}" height="250" width="250">
@@ -36,11 +36,11 @@
                 <p> {{photo.like_count}} People like this! :)</p>
                 <p >This image was viewed {{photo.view_count}} times!</p>
                 <button class="btn-success" ng-hide="leaveComment" ng-click="leaveComment=true">Leave A Comment</button>
-                <form ng-show="leaveComment">
-                    <input type="text" ng-model="vm.newComment.commentName" placeholder="your name">
-                    <textarea ng-model="vm.newComment.commentContent" placeholder="leave your comment"></textarea>
+                <form ng-show="leaveComment" ng-model="vm.newComment">
+                    <input type="text" ng-model="vm.newComment[i].commentName" placeholder="your name">
+                    <textarea ng-model="vm.newComment[i].commentContent" placeholder="leave your comment"></textarea>
                     <button class="btn-success" ng-click="leaveComment=false">Don't Leave Comment</button>
-                    <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment, photo.id)">Submit Comment</button>
+                    <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment[i], photo.id)">Submit Comment</button>
                 </form>
                 <button class="btn-success" ng-hide="comments; commentBtn" ng-click="comments=true; commentBtn=true; vm.getComments(photo.id)">Show Comments</button>
                 <ul ng-show="comments" ng-repeat="comment in vm.commentArray">
