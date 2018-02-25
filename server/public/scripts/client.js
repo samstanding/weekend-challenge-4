@@ -53,8 +53,8 @@ self.addComment = function (newComment, id) {
         url: `/gallery/${id}`,
         data: newComment
     }).then(function (response) {
-        self.getPhotos();
         self.newComment = {};
+        self.getPhotos();
     }).catch(function (error) {
         console.log(`error on post comment: ${error}`);
     })    
