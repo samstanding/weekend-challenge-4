@@ -16,3 +16,9 @@ body {
     padding-left: 50px;
 }
 
+thumbnail {
+    display: block;
+    height: 250px;
+    width: 250px;
+    background-color: white;
+}

@@ -1,6 +1,6 @@
 CREATE TABLE photos ( 
 	id serial primary key,
-	img VARCHAR (1000),
+	img VARCHAR (10000),
     like_count integer DEFAULT 0,
 	view_count integer DEFAULT 0,
     description VARCHAR (600),

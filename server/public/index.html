@@ -30,7 +30,7 @@
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
             <div class="col-md-4" align="center">
                 <img ng-hide="description" ng-click="description=true; vm.addCount(photo.id)" ng-src="{{photo.img}}" height="250" width="250">
-                <textarea rows="12" cols="34" ng-show="description" ng-click="description=false; vm.getPhotos()" >{{photo.description}}</textarea>
+                <thumbnail rows="12" cols="34" ng-show="description" ng-click="description=false; vm.getPhotos()" >{{photo.description}}</thumbnail>
                 <p>{{photo.title}} </p>
                 <button ng-click="vm.addLike(photo.id)">I like this!</button>
                 <p> {{photo.like_count}} People like this! :)</p>
