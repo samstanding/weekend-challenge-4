@@ -42,9 +42,9 @@
                     <button class="btn-success" ng-click="leaveComment=false">Don't Leave Comment</button>
                     <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment[i], photo.id)">Submit Comment</button>
                 </form>
-                <button class="btn-success" ng-hide="comments; commentBtn" ng-click="comments=true; commentBtn=true; vm.getComments(photo.id)">Show Comments</button>
-                <ul ng-show="comments" ng-repeat="comment in vm.commentArray">
-                    <li> <strong>{{comment.author}} </strong>  says: {{comment.comments}} </li>
+                <button class="btn-success" ng-hide="comments; commentBtn" ng-click="comments=true; commentBtn=true; vm.getComments()">Show Comments</button>
+                <ul ng-show="comments" ng-repeat="(i, comment) in vm.commentArray track by $index "ng-if="food.id == comment[i].photo_id">
+                    <li ng-if="photo.id == comment.photo_id"> <strong>{{comment.author}} </strong>  says: {{comment.comments}} </li>
                 </ul>
                 <button ng-show="commentBtn" class="btn-success" ng-click="comments=false; commentBtn=false">Hide Comments</button>
             </div>

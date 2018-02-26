@@ -48,10 +48,9 @@ router.post('/:id', function (req, res) {
     })
 })
 
-router.get('/:id', function (req, res) {
-    const id = req.params.id;
-    const sqlText = `SELECT * FROM comments WHERE photo_id=$1;`;
-    pool.query(sqlText, [id])
+router.get('/comments', function (req, res) {
+    const sqlText = `SELECT * FROM comments;`;
+    pool.query(sqlText)
     .then(function (result) {
         res.send(result);
     }).catch(function (error) {

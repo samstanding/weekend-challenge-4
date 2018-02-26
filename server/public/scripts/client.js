@@ -6,6 +6,7 @@ let self = this;
 self.photoArray = [];
 self.newComment = {commentName: '', commentContent: ''};
 self.commentArray = [];
+self.clickComments = [];
 self.newPhoto={};
 
 
@@ -58,16 +59,27 @@ self.addComment = function (newComment, id) {
     })    
 }
 
-self.getComments = function (id) {
+self.getComments = function () {
     $http({
         method: 'GET',
-        url:`/gallery/${id}`
+        url:`/gallery/comments`
     }).then(function (response) {
         self.commentArray = response.data.rows;
+        console.log(self.commentArray);
     }).catch(function (error) {
         console.log(`error on comment get: ${error}`);
     })
 }
+
+// self.commentSort = function (id, array) {
+//     self.clickComments = [];
+//     for (obj of array) {
+//         console.log(obj);
+//         if (id == obj.photo_id) {
+//             self.clickComments.push(obj); 
+//     }
+// }
+// }
 
 self.addPhoto = function (photo) {
     console.log(photo);
