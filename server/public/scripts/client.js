@@ -6,7 +6,6 @@ let self = this;
 self.photoArray = [];
 self.newComment = {commentName: '', commentContent: ''};
 self.commentArray = [];
-self.clickComments = [];
 self.newPhoto={};
 
 
@@ -71,15 +70,6 @@ self.getComments = function () {
     })
 }
 
-// self.commentSort = function (id, array) {
-//     self.clickComments = [];
-//     for (obj of array) {
-//         console.log(obj);
-//         if (id == obj.photo_id) {
-//             self.clickComments.push(obj); 
-//     }
-// }
-// }
 
 self.addPhoto = function (photo) {
     console.log(photo);
