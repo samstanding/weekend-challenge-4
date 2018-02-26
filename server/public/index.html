@@ -15,10 +15,10 @@
     <main ng-controller="AppController as vm">
     <div class="container">
         <div class="col-md-9" align="center">
-            <h2>Hello Friend</h2>
-            <h4>Sit Down and Stay for a While. I'm going to tell you about my life</h4>
+            <h2>Here's some Music that's Important to Me</h2>
+            <h4>I love music. Here are some albums that are meaningful to me. This is not an inclusive list.</h4>
         </div>
-        <div class = "col-md-3" align="left">
+        <div class = "col-md-3" >
             <form>
                 <input type="text" ng-model="vm.newPhoto.img" placeholder="img url">
                 <input type="text" ng-model="vm.newPhoto.description" placeholder="description">
@@ -43,7 +43,7 @@
                     <button class="btn-success" ng-click="leaveComment=false; vm.addComment(vm.newComment[i], photo.id)">Submit Comment</button>
                 </form>
                 <button class="btn-success" ng-hide="comments; commentBtn" ng-click="comments=true; commentBtn=true; vm.getComments()">Show Comments</button>
-                <ul ng-show="comments" ng-repeat="(i, comment) in vm.commentArray track by $index "ng-if="food.id == comment[i].photo_id">
+                <ul ng-show="comments" ng-repeat="comment in vm.commentArray"ng-if="food.id == comment[i].photo_id">
                     <li ng-if="photo.id == comment.photo_id"> <strong>{{comment.author}} </strong>  says: {{comment.comments}} </li>
                 </ul>
                 <button ng-show="commentBtn" class="btn-success" ng-click="comments=false; commentBtn=false">Hide Comments</button>
